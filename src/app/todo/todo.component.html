@@ -36,7 +36,7 @@
     <div class="col-md-9">
       <div cdkDropListGroup>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-3">
             <!-- todo -->
             <div class="example-container">
               <h2>To do</h2>
@@ -73,7 +73,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <!-- inprogress -->
             <div class="example-container">
               <h2>In progress</h2>
@@ -103,7 +103,37 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
+            <!-- test -->
+            <div class="example-container">
+              <h2>Test</h2>
+
+              <div
+                cdkDropList
+                [cdkDropListData]="tests"
+                class="example-list"
+                (cdkDropListDropped)="drop($event)"
+              >
+                <div
+                  class="example-box"
+                  *ngFor="let item of tests; let i = index"
+                  cdkDrag
+                >
+                  {{ item.description }}
+                  <div class="box">
+                    <button
+                      mat-icon-button
+                      color="warn"
+                      (click)="deleteTestTask(i)"
+                    >
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
             <!-- done -->
             <div class="example-container">
               <h2>Done</h2>
